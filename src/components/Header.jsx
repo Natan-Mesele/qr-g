@@ -25,7 +25,7 @@ function Header() {
                 <img src="https://order.qranbessa.net/uploads/a3fb7c7b6c408451a0a8bf4716711929.png" />
             </div>
             <div className='hidden sm:block'>
-                <div className='flex gap-6 item-center'>
+                <div className='flex gap-6 item-center uppercase text-sm'>
                     <a href='#'>Menu</a>
                     <a href='#'>Reservation</a>
                     <a href='#'>Cart</a>
@@ -38,7 +38,6 @@ function Header() {
                     <MenuIcon />
                 </div>
             </div>
-            
         </div>
     </div>
   )
