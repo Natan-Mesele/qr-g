@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import Side from './components/Side'
+import ItemCard from './components/ItemCard';
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,7 +13,7 @@ function App() {
       <div className="App">
         <Header />
           <Routes>
-            <Route path="/" element={<Side/>}></Route>
+            <Route path="/" element={<ItemCard/>}></Route>
           </Routes>
       </div>
     </Router>
