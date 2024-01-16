@@ -1,8 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react';
+import ItemPopup from './ItemPopup'
 
 function Side() {
+    const [open, setOpen] = useState(false);
+    const[selectedItem, setSelectedItem] = useState(null)
+    const[isPopupVisible, setIsPopupVisible] = useState(false)
+
+    const handleClickOpen = () => {
+
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const [jsonData, setJsonData] = useState({
+      items: [
+        {
+          image: 'http://example.com/image1.jpg',
+          title: 'Item 1'
+        },
+        {
+          image: 'http://example.com/image2.jpg',
+          title: 'Item 2'
+        },
+        {
+          image: 'http://example.com/image3.jpg',
+          title: 'Item 3'
+        }
+      ]
+    });
+
+    // const [jsonData, setJsonData] = useState({
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg',
+    //     title: 'Item 1',
+    //   },
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701927338/fwr3x08jn3qv0mruqzje.jpg',
+    //     title: 'Item 2',
+    //   },
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701927696/ofgpqk6m7qwiad6xrbtc.jpg',
+    //     title: 'Item 3',
+    //   },
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1703482054/vfxjg7gj5evzoicgkuen.jpg',
+    //     title: 'Item 3',
+    //   },
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1702552358/h052zwolc2dj5jfyq5xi.jpg',
+    //     title: 'Item 3',
+    //   },
+    //   {
+    //     image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1702552359/vahtamhlmnnsiebhargq.jpg',
+    //     title: 'Item 3',
+    //   },
+    // });
+
   return (
-    <div className='sm:flex gap-6'>
+    <div className='sm:flex gap-6 max'>
       <div>
         <div className='flex m-4 p-4 border-2 overflow-x-auto rounded-lg shadow-xl sm:shadow-none sm:border-none lg:px-20'>
           <div className='flex gap-8 text-sm items-center sm:grid'>
@@ -16,68 +74,22 @@ function Side() {
           </div>
         </div>
       </div>
-      <div className='mx-4 my-8 sm:mx-0'>
-        <ul className='flex flex-wrap gap-4'>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-          <li className='border-2 rounded-xl w-48 cursor-pointer md:flex md:w-60'>
-            <img src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg" className='w-36'/>
-              <div className='p-2'>
-                <p className='text-ms font-bold'>Burger</p>
-                <span className='text-xs text-gray-400'>Br 101</span>
-              </div>
-          </li>
-        </ul>
-      </div>
+      {jsonData.items.map((item, index) => (
+        <div key={index}>
+          <img src={item.image} alt={item.title} />
+          <h2>{item.title}</h2>
+        </div>
+      ))}
     </div>
   )
 }
 
 export default Side
+
+
+
+
+
+
+
+
