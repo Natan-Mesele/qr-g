@@ -95,9 +95,8 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
               selected={selectedMOptions}
               placeholder="Select Addon"
               options={[
-                { id: "option1", name: "Option 1" },
-                { id: "option2", name: "Option 2" },
-                { id: "option3", name: "Option 3" },
+                { id: "option1", name: "Take way 1" },
+                { id: "option2", name: "Take Way 2" },
               ]}
               setSelected={handleSelectMChange}
             />
