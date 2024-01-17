@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import ItemPopup from './ItemPopup'
 
 function Side() {
-  const [open, setOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
-  const handleOpenDialog = (item) => {
-    setSelectedItem(item);
+  const handleOpenDialog = (itemId) => {
+    setSelectedItemId(itemId);
     setIsPopupVisible(true);
   };
 
@@ -15,47 +14,53 @@ function Side() {
     setIsPopupVisible(false);
   };
 
-
     const [jsonData, setJsonData] = useState({
       items: [
         {
-          "id": 1,
+          id: 1,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg',
           title: 'Burger',
           ptitle: '101 Br.'
         },
         {
-          "id": 2,
+          id: 2,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701927338/fwr3x08jn3qv0mruqzje.jpg',
           title: 'Cake',
           ptitle: '50 Br.'
         },
         {
-          "id": 3,
+          id: 3,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1701927696/ofgpqk6m7qwiad6xrbtc.jpg',
           title: 'Pasta',
           ptitle: '68 Br.'
         },
         {
-          "id": 4,
+          id: 4,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1703482054/vfxjg7gj5evzoicgkuen.jpg',
           title: 'Coffee',
           ptitle: '30 Br.'
         },
         {
-          "id": 5,
+          id: 5,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1702552358/h052zwolc2dj5jfyq5xi.jpg',
           title: 'Cake 2',
           ptitle: '50 Br.'
         },
         {
-          "id": 6,
+          id: 6,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1702552359/vahtamhlmnnsiebhargq.jpg',
           title: 'Item 3',
           ptitle: '200 Br.'
         }
       ]
     });
+
+    
+  const getItemById = (itemId) => {
+    return jsonData.items.find((item) => item.id === itemId);
+  };
+
+  const selectedItem = getItemById(selectedItemId);
 
   return (
     <div className='sm:flex gap-6 max'>
@@ -73,24 +78,32 @@ function Side() {
         </div>
       </div>
       <div className='flex flex-wrap mt-8'>
-        {jsonData.items.map((item, index) => (
-          <div key={index}>
-            <ul>
-              <li onClick={() => handleOpenDialog(item)} className='border-2 w-48 h-30 m-2 p-2 rounded-lg cursor-pointer'>
-                <img src={item.image} alt={item.title} className='w-40 h-40 object-cover'/>
-                <h2 className='mt-2'>{item.title}</h2>
-                <span className='text-xs text-gray-500'>{item.ptitle}</span>
-                {isPopupVisible && (
-                  <ItemPopup selectedItem={selectedItem} onClose={handleCloseDialog} />
-                )}
-              </li>
-            </ul>
-          </div>
-        ))}
-      </div>
+      {jsonData.items.map((item, index) => (
+        <div key={item.id}>
+          <ul>
+            <li
+              onClick={() => handleOpenDialog(item.id)}
+              className='border-2 w-48 h-30 m-2 p-2 rounded-lg cursor-pointer'
+            >
+              <img src={item.image} alt={item.title} className='w-40 h-40 object-cover' />
+              <h2 className='mt-2'>{item.title}</h2>
+              <span className='text-xs text-gray-500'>{item.ptitle}</span>
+            </li>
+          </ul>
+        </div>
+      ))}
+      {isPopupVisible && (
+          <ItemPopup
+            isPopupVisible={isPopupVisible}
+            selectedItem={selectedItem}
+            handleClose={handleCloseDialog}
+          />
+        )}
     </div>
-  )
-}
+    </div>
+  );
+};
+
 
 export default Side
 
