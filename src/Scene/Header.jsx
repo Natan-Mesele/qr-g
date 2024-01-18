@@ -4,13 +4,24 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { Link } from 'react-router-dom';
+import RegisterPopup from './RegisterPopup';
 
 function Header() {
     const [burgerMenuOpen, setBurgerMenuOpen] = useState(false);
+    const [isRegisterPopupOpen, setRegisterPopupOpen] = useState(false);
 
     const toggleBurgerMenu = () => {
         setBurgerMenuOpen(!burgerMenuOpen);
     };
+
+    const openRegisterPopup = () => {
+        setRegisterPopupOpen(true);
+      };
+    
+      const closeRegisterPopup = () => {
+        setRegisterPopupOpen(false);
+      };
 
   return (
     <div className='p-4 bg-black text-white md:px-20'>
@@ -33,11 +44,12 @@ function Header() {
             </div>
             <div className='hidden sm:block'>
                 <div className='flex gap-6 item-center uppercase text-sm'>
-                    <a href='#' className="border-b-2 border-white w-10">Menu</a>
-                    <a href='#'>Reservation</a>
-                    <a href='#'>Cart</a>
-                    <a href='#'>Login</a>
+                    <Link to="/" className="border-b-2 border-white w-10">Menu</Link>
+                    <Link to="/reservation">Reservation</Link>
+                    <Link to="/cart" onClick={openRegisterPopup}>Cart</Link>
+                    <Link to="/login">Login</Link>
                 </div>
+                {isRegisterPopupOpen && <RegisterPopup onClose={closeRegisterPopup} />}
             </div>
             <div className='sm:hidden cursor-pointer'>
                 <MenuIcon onClick={toggleBurgerMenu}/>
@@ -48,11 +60,12 @@ function Header() {
             <div className='m-2'>
                 <CloseIcon className='cursor-pointer m-3' onClick={toggleBurgerMenu}/>
                 <div className='flex flex-col  p-4 gap-4 uppercase text-sm'>
-                    <a href="#" className="border-b-2 border-white w-10">Menu</a>
-                    <a href="#">Reservation</a>
-                    <a href="#">Cart</a>
-                    <a href="#">Login</a>
+                    <Link to="/" className="border-b-2 border-white w-10"> Menu</Link>
+                    <Link to="/reservation">Reservation</Link>
+                    <Link to="/cart" onClick={openRegisterPopup}>Cart</Link>
+                    <Link to="/login">Login</Link>
                 </div>
+                {isRegisterPopupOpen && <RegisterPopup onClose={closeRegisterPopup} />}
             </div>
         </div>
         )}
