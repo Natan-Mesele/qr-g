@@ -24,7 +24,7 @@ const RegisterPopup = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-      <div className="bg-white p-8 rounded shadow-md w-full max-sm:w-4/5 sm:w-2/3 md:w-2/3 lg:w-2/5 xl:w-1/4 overflow-y-auto h-80">
+      <div className="bg-white p-8 rounded shadow-md w-full max-sm:w-4/5 sm:w-2/3 md:w-2/3 lg:w-2/5 xl:w-1/4 overflow-y-auto h-[86vh]">
         <CloseIcon
           className="cursor-pointer text-black float-end "
           onClick={onClose}
