@@ -61,7 +61,7 @@ const Reservation = ({ passFormData }) => {
             className="mt-1 p-2 w-full border rounded-md"
           />
         </div>
-        <div className="mb-4">
+        <div className="my-3">
           <input
             type="text"
             id="phone"
@@ -104,7 +104,7 @@ const Reservation = ({ passFormData }) => {
             className="mt-1 p-2 w-full border rounded-md"
           />
         </div>
-        <FormControl fullWidth margin="normal">
+        <FormControl fullWidth margin="normal mb-4">
             <CustomSelector
               label="Select A Branch"
               menuItems={[
@@ -116,7 +116,7 @@ const Reservation = ({ passFormData }) => {
               className="mt-1 p-2 w-full border rounded-md"
             />
           </FormControl>
-        <button type="submit" className="bg-gray-500 text-white p-2 rounded-md border-2  border-transparent hover:border-black hover:bg-white hover:text-black sm:text-center">
+        <button type="submit" className="bg-gray-500 mt-3 text-white p-2 rounded-md border-2  border-transparent hover:border-black hover:bg-white hover:text-black sm:text-center">
           Submit
         </button>
       </form>
