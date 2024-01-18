@@ -77,29 +77,29 @@ function Side() {
           </div>
         </div>
       </div>
-      <div className='flex flex-wrap mt-8'>
-      {jsonData.items.map((item, index) => (
-        <div key={item.id}>
-          <ul>
-            <li
-              onClick={() => handleOpenDialog(item.id)}
-              className='border-2 w-48 h-30 m-2 p-2 rounded-lg cursor-pointer'
-            >
-              <img src={item.image} alt={item.title} className='w-40 h-40 object-cover' />
-              <h2 className='mt-2'>{item.title}</h2>
-              <span className='text-xs text-gray-500'>{item.ptitle}</span>
-            </li>
-          </ul>
-        </div>
-      ))}
-      {isPopupVisible && (
+      <div className='max-sm:mx-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-8'>
+        {jsonData.items.map((item, index) => (
+          <div key={item.id}>
+            <ul>
+              <li
+                onClick={() => handleOpenDialog(item.id)}
+                className='border-2 rounded-lg cursor-pointer'
+              >
+                <img src={item.image} alt={item.title} className='w-full h-24 object-cover rounded-md' />
+                <h2 className='mt-2 p-1'>{item.title}</h2>
+                <span className='text-xs text-gray-500 p-1'>{item.ptitle}</span>
+              </li>
+            </ul>
+          </div>
+        ))}
+        {isPopupVisible && (
           <ItemPopup
             isPopupVisible={isPopupVisible}
             selectedItem={selectedItem}
             handleClose={handleCloseDialog}
           />
         )}
-    </div>
+      </div>
     </div>
   );
 };
