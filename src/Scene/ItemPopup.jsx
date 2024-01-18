@@ -21,8 +21,8 @@ import {
 } from "@material-ui/core";
 
 const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
+  const [selectedOption, setSelectedOption] = useState('');
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [selectedMOptions, setSelectedMOptions] = useState([]);
   const [textInput, setTextInput] = useState("");
   const [count, setCount] = useState(0);
 
@@ -30,12 +30,12 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
 
   const { id, image, title, ptitle } = selectedItem;
 
-  const handleSelectChange = (event) => {
-    setSelectedOptions(event.target.value);
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
   };
 
-  const handleSelectMChange = (event) => {
-    setSelectedMOptions(event.target.value);
+  const handleOptionsChange = (event) => {
+    setSelectedOptions(event.target.value);
   };
 
   const handleTextChange = (event) => {
@@ -86,19 +86,19 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
                 { id: "option1", name: "Small" },
                 { id: "option2", name: "Middle" },
               ]}
-              onChange={handleSelectChange}
-              value={selectedOptions}
+              onChange={handleOptionChange}
+              value={selectedOption}
             />
           </FormControl>
           <FormControl fullWidth margin="normal">
             <CustomMultipleSelect
-              selected={selectedMOptions}
+              selected={selectedOptions}
               placeholder="Select Addon"
               options={[
                 { id: "option1", name: "Take way 1" },
                 { id: "option2", name: "Take Way 2" },
               ]}
-              setSelected={handleSelectMChange}
+              setSelected={handleOptionsChange}
             />
           </FormControl>
           <div>
