@@ -49,7 +49,7 @@ function Side() {
         {
           id: 6,
           image: 'http://res.cloudinary.com/dsskh3fao/image/upload/v1702552359/vahtamhlmnnsiebhargq.jpg',
-          title: 'Item 3',
+          title: 'ConeFlex',
           ptitle: '200 Br.'
         }
       ]
@@ -77,7 +77,7 @@ function Side() {
           </div>
         </div>
       </div>
-      <div className='max-sm:mx-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-8'>
+      <div className='max-sm:mx-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8'>
         {jsonData.items.map((item, index) => (
           <div key={item.id} className='flex flex-col'>
             <ul>
