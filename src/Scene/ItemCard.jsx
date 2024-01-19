@@ -66,7 +66,7 @@ function Side() {
     <div className='sm:flex gap-6 max'>
       <div>
         <div className='flex m-4 p-4 border-2 overflow-x-auto rounded-lg shadow-xl sm:shadow-none sm:border-none lg:px-20'>
-          <div className='flex gap-8 text-sm items-center sm:grid'>
+          <div className='flex gap-6 text-sm items-center sm:grid'>
             <span className='hidden text-sm text-center font-bold sm:block'>CATEGORIES</span>
             <a href="#" className='bg-black text-white px-4 py-2 rounded border-2  border-transparent hover:border-black hover:bg-white hover:text-black sm:text-center'>ALL</a>
             <a href="#" className=' border-2 border-transparent hover:border-black px-4 py-2 rounded sm:text-center'>Burger</a>
@@ -79,15 +79,17 @@ function Side() {
       </div>
       <div className='max-sm:mx-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-8'>
         {jsonData.items.map((item, index) => (
-          <div key={item.id}>
+          <div key={item.id} className='flex flex-col'>
             <ul>
               <li
                 onClick={() => handleOpenDialog(item.id)}
-                className='border-2 rounded-lg cursor-pointer'
+                className='border-2 rounded-lg cursor-pointer flex flex-col'
               >
-                <img src={item.image} alt={item.title} className='w-full h-24 object-cover rounded-md' />
-                <h2 className='mt-2 p-1'>{item.title}</h2>
-                <span className='text-xs text-gray-500 p-1'>{item.ptitle}</span>
+                <img src={item.image} alt={item.title} className='w-full h-32 sm:h-24 object-cover rounded-md' />
+                <div className='flex-grow flex flex-col justify-between'>
+                  <h2 className='mt-2 p-1 text-sm sm:text-base'>{item.title}</h2>
+                  <span className='text-xs text-gray-500 p-1'>{item.ptitle}</span>
+              </div>
               </li>
             </ul>
           </div>
