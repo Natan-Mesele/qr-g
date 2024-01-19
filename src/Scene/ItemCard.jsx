@@ -128,7 +128,7 @@ function Side() {
                   alt={item.title}
                   className="w-full h-28 sm:w-32 sm:h-24 object-cover rounded-md"
                 />
-                <div className="sm:w-1/2 md:w-full mt-6">
+                <div className="sm:w-1/2 md:w-full p-2">
                   <h2 className="font-bold text-sm">{item.title}</h2>
                   <span className="text-xs text-gray-500">{item.ptitle}</span>
                 </div>
