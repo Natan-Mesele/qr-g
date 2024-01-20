@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import MyComponent from './ItemPopup';
+import React, { useState } from "react";
+import MyComponent from "./ItemPopup";
 
 function ItemCard() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null); // Track the selected item
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const handleOpenPopup = (item) => {
-    setSelectedItem(item); 
+    setSelectedItem(item);
     setIsPopupVisible(true);
   };
 
   const handleClosePopup = () => {
-    setSelectedItem(null); 
+    setSelectedItem(null);
     setIsPopupVisible(false);
   };
 
@@ -27,7 +27,7 @@ function ItemCard() {
       {
         id: 2,
         image:
-        "http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg",
+          "http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg",
         title: "Cake",
         ptitle: "50 Br.",
       },
@@ -41,7 +41,7 @@ function ItemCard() {
       {
         id: 4,
         image:
-        "http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg",
+          "http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg",
         title: "Coffee",
         ptitle: "30 Br.",
       },
@@ -109,15 +109,15 @@ function ItemCard() {
           </div>
         </div>
       </div>
-    <div className=''>
-    <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
-        {jsonData.items.map((item, index) => (
-          <li
+      <div className="">
+        <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
+          {jsonData.items.map((item, index) => (
+            <li
               key={item.id}
               onClick={() => handleOpenPopup(item)}
               className="border-2 rounded-lg cursor-pointer sm:w-60 lg:w-60"
             >
-            <div className="sm:flex gap-4">
+              <div className="sm:flex gap-4">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -128,17 +128,17 @@ function ItemCard() {
                   <span className="text-xs text-gray-500">{item.ptitle}</span>
                 </div>
               </div>
-          </li>
-        ))}
-      </ul>
-      {isPopupVisible && (
-        <MyComponent
-          isPopupVisible={isPopupVisible}
-          handleClosePopup={handleClosePopup}
-          selectedItem={selectedItem}
-        />
-      )}
-    </div>
+            </li>
+          ))}
+        </ul>
+        {isPopupVisible && (
+          <MyComponent
+            isPopupVisible={isPopupVisible}
+            handleClosePopup={handleClosePopup}
+            selectedItem={selectedItem}
+          />
+        )}
+      </div>
     </div>
   );
 }
