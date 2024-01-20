@@ -20,18 +20,14 @@ import {
   OutlinedInput,
 } from "@material-ui/core";
 
-const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
-  const [selectedOption, setSelectedOption] = useState('');
+const MyComponent = ({ isPopupVisible, handleClosePopup, selectedItem }) => {
+  const [selectedOption, setSelectedOption] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [textInput, setTextInput] = useState("");
+  const [textInput, setTextInput] = useState('');
   const [count, setCount] = useState(0);
 
-  if (!selectedItem) return null;
-
-  const { id, image, title, ptitle } = selectedItem;
-
   const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOptions(event.target.value);
   };
 
   const handleOptionsChange = (event) => {
@@ -50,23 +46,24 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
     setCount(count > 0 ? count - 1 : 0);
   };
 
-  return ( 
-      <Dialog open={isPopupVisible} onClose={handleClose} maxWidth="md" className=" w-6/6 mx-auto sm:w-5/6 md:w-5/6 lg:w-3/6 lg:mx-auto">
+  return (
+    <div>
+      <Dialog open={isPopupVisible} onClose={handleClosePopup} maxWidth="md" className=" w-6/6 mx-auto sm:w-5/6 md:w-5/6 lg:w-3/6 lg:mx-auto">
       <div className="flex justify-between p-4">
         <h1>Burger</h1>
-        <CloseIcon className="cursor-pointer" onClick={handleClose}/>
+        <CloseIcon className="cursor-pointer" onClick={handleClosePopup}/>
       </div>
         <DialogContent className="text-center">
           <div className="flex justify-center">
             <img
-              src="http://res.cloudinary.com/dsskh3fao/image/upload/v1701977156/kd2euwbl9rgtivwwgvcc.jpg"
+              src={selectedItem.image}
               alt="Dialog Image"
               className="w-60 object-contain rounded-full mb-4"
             />
           </div>
           <div>
-            <h3 className="text-lg text-center mb-4">Burger</h3>
-            <span>101 Br.</span>
+            <h3 className="text-lg text-center mb-4">{selectedItem.title}</h3>
+            <span>{selectedItem.ptitle}</span>
             <p className="text-left mt-4">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
@@ -114,14 +111,14 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
         </DialogContent>
         <DialogActions className="justify-center my-1 mr-9">
           <button
-            onClick={handleClose}
+            onClick={handleClosePopup}
             color="primary"
             className="mr-4 bg-black text-white px-4 py-2 rounded-md hover:border-black hover:bg-white border-2 border-transparent hover:text-black text-sm"
           >
             CANCEL
           </button>
           <button
-            onClick={handleClose}
+            onClick={handleClosePopup}
             color="primary"
             variant="contained"
             className="bg-black text-white px-4 py-2 rounded-md border-2 border-transparent hover:border-black hover:bg-white hover:text-black text-sm"
@@ -130,8 +127,8 @@ const ItemPopup = ({isPopupVisible, selectedItem, handleClose}) => {
           </button>
         </DialogActions>
       </Dialog>
-   
+    </div>
   );
 };
 
-export default ItemPopup;
+export default MyComponent;

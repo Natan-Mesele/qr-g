@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import ItemPopup from "./ItemPopup";
+import React, { useState } from 'react';
+import MyComponent from './ItemPopup';
 
-function Side() {
+function ItemCard() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [selectedItemId, setSelectedItemId] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null); // Track the selected item
 
-  const handleOpenDialog = (itemId) => {
-    setSelectedItemId(itemId);
+  const handleOpenPopup = (item) => {
+    setSelectedItem(item); 
     setIsPopupVisible(true);
   };
 
-  const handleCloseDialog = () => {
+  const handleClosePopup = () => {
+    setSelectedItem(null); 
     setIsPopupVisible(false);
   };
 
@@ -61,12 +62,6 @@ function Side() {
     ],
   });
 
-  const getItemById = (itemId) => {
-    return jsonData.items.find((item) => item.id === itemId);
-  };
-
-  const selectedItem = getItemById(selectedItemId);
-
   return (
     <div className="sm:flex">
       <div>
@@ -114,15 +109,15 @@ function Side() {
           </div>
         </div>
       </div>
-      <div>
-        <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
-          {jsonData.items.map((item, index) => (
-            <li
+    <div className=''>
+    <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 m-4">
+        {jsonData.items.map((item, index) => (
+          <li
               key={item.id}
-              onClick={() => handleOpenDialog(item.id)}
+              onClick={() => handleOpenPopup(item)}
               className="border-2 rounded-lg cursor-pointer sm:w-60 lg:w-60"
             >
-              <div className="sm:flex gap-4">
+            <div className="sm:flex gap-4">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -133,19 +128,19 @@ function Side() {
                   <span className="text-xs text-gray-500">{item.ptitle}</span>
                 </div>
               </div>
-            </li>
-          ))}
-        </ul>
-        {isPopupVisible && (
-          <ItemPopup
-            isPopupVisible={isPopupVisible}
-            selectedItem={selectedItem}
-            handleClose={handleCloseDialog}
-          />
-        )}
-      </div>
+          </li>
+        ))}
+      </ul>
+      {isPopupVisible && (
+        <MyComponent
+          isPopupVisible={isPopupVisible}
+          handleClosePopup={handleClosePopup}
+          selectedItem={selectedItem}
+        />
+      )}
+    </div>
     </div>
   );
 }
 
-export default Side;
+export default ItemCard;
