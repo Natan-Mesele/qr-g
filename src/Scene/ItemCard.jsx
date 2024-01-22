@@ -121,7 +121,7 @@ function ItemCard() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-28 sm:w-32 sm:h-24 object-cover rounded-md"
+                  className="w-full h-28 sm:w-32 sm:h-24 rounded-md bg-cover bg-[50%] bg-[center] bg-[top]"
                 />
                 <div className="sm:w-1/2 md:w-full p-2">
                   <h2 className="font-bold text-sm">{item.title}</h2>

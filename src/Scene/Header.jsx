@@ -16,15 +16,16 @@ function Header() {
     };
 
     const openRegisterPopup = () => {
-        setRegisterPopupOpen(true);
-      };
+        setBurgerMenuOpen(false);  
+        setRegisterPopupOpen(true); 
+    };
     
-      const closeRegisterPopup = () => {
+    const closeRegisterPopup = () => {
         setRegisterPopupOpen(false);
-      };
+    };
 
   return (
-    <div className='p-4 bg-black text-white md:px-20'>
+    <div className='p-4 bg-black text-white lg:px-20 transition-colors duration-300 ease-in-out'>
         <div className='flex justify-between gap-4 border-b-2 pb-4'>
             <div className='text-xs'>
                 <LocationOnIcon className='mr-2'/>
@@ -56,7 +57,7 @@ function Header() {
             </div>
         </div>
         {burgerMenuOpen && (
-        <div className='grid absolute top-0 right-0 bg-black w-60 h-full'>
+        <div className='grid absolute top-0 right-0 bg-black w-60 h-full sm:hidden'>
             <div className='m-2'>
                 <CloseIcon className='cursor-pointer m-3' onClick={toggleBurgerMenu}/>
                 <div className='flex flex-col  p-4 gap-4 uppercase text-sm'>
