@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import CloseIcon from '@material-ui/icons/Close'
+import React, { useState } from "react";
+import CloseIcon from "@material-ui/icons/Close";
 
 const RegisterPopup = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -18,7 +18,7 @@ const RegisterPopup = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Registering:', formData);
+    console.log("Registering:", formData);
     onClose();
   };
 
@@ -34,7 +34,9 @@ const RegisterPopup = ({ onClose }) => {
           alt=""
           className="w-2/6 mx-auto mt-8"
         />
-        <h2 className="text-md font-bold mb-6 mt-4 text-black text-center">Enter your credentials</h2>
+        <h2 className="text-md font-bold mb-6 mt-4 text-black text-center">
+          Enter your credentials
+        </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <input
@@ -91,9 +93,9 @@ const RegisterPopup = ({ onClose }) => {
             Register
           </button>
         </form>
-        <div className='flex mt-20 justify-center gap-2 text-sm'>
-            <h3 className='text-black'>Already have an account?</h3>
-            <button className='text-blue-300'>Login</button>
+        <div className="flex mt-20 justify-center gap-2 text-sm">
+          <h3 className="text-black">Already have an account?</h3>
+          <button className="text-blue-300">Login</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import RegisterPopup from '../RegisterPopup';
+import React, { useState } from "react";
+import RegisterPopup from "../RegisterPopup";
 
 function Cart() {
   const [isRegisterPopupOpen, setRegisterPopupOpen] = useState(false);
