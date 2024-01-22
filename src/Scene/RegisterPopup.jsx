@@ -24,7 +24,7 @@ const RegisterPopup = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-      <div className="bg-white p-8 rounded shadow-md w-full max-sm:w-4/5 sm:w-2/3 md:w-2/3 lg:w-2/5 xl:w-1/4 overflow-y-auto h-[86vh]">
+      <div className="bg-white p-8 rounded shadow-md w-6/6 mx-auto sm:w-5/6 md:w-5/6 lg:w-3/6 lg:mx-auto">
         <CloseIcon
           className="cursor-pointer text-black float-end "
           onClick={onClose}
@@ -32,7 +32,7 @@ const RegisterPopup = ({ onClose }) => {
         <img
           src="http://res.cloudinary.com/dsskh3fao/image/upload/v1699358469/s3uyag6gbpeknahenyfn.png"
           alt=""
-          className="w-3/6 mx-auto mt-8"
+          className="w-2/6 mx-auto mt-8"
         />
         <h2 className="text-md font-bold mb-6 mt-4 text-black text-center">Enter your credentials</h2>
         <form onSubmit={handleSubmit}>

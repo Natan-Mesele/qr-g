@@ -47,14 +47,8 @@ const Reservation = ({ passFormData }) => {
     'https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
     
   return (
-    <div className='pt-10 pb-16' 
-    style={{
-      backgroundImage: `url('${backgroundImageUrl}')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      height: '100vh',
-      width: '100%',
-    }}
+    <div className='pt-10 pb-16 h-screen bg-cover bg-center'
+      style={{ backgroundImage: `url('${backgroundImageUrl}')` }}
     >
       <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 border rounded bg-gray-50">
         <div className="">
