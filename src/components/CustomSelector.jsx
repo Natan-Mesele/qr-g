@@ -6,14 +6,14 @@ function CustomSelector({ label, menuItems, onChange, value, required }) {
     <div className="text-field">
       {/* <InputLabel id="demo-simple-select-label">{label}</InputLabel> */}
 
-      <FormControl fullWidth
-          // margin="normal"
-          >
-      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-        
+      <FormControl
+        fullWidth
+        // margin="normal"
+      >
+        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+
         <Select
           label={label}
-
           // required={required}
           // placeholder={`choose ${label}`}
           disabled={menuItems.length ? false : true}
