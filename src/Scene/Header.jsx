@@ -76,7 +76,7 @@ function Header() {
             onClick={() => setBurgerMenuOpen(false)}
           />
         </div>
-        <div className="flex flex-col p-4 gap-4 uppercase text-sm">
+        <div className="flex flex-col p-4 gap-6 uppercase text-sm">
           <Link to="/" className="border-b-2 border-white w-10">
             Menu
           </Link>
